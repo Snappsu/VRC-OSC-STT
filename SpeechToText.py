@@ -17,6 +17,10 @@ try:
 except ImportError:
     from yaml import Loader
 
+file = open("DG_API_KEY", "r")
+DEEPGRAM_API_KEY = file.read()
+file.close()
+
 startTime = datetime.datetime.now()
 
 all_mic_data = []
@@ -161,6 +165,7 @@ async def run():
 
     # Connect to the real-time streaming endpoint, attaching our credentials.
     async with websockets.connect(
+        
         deepgram_url, extra_headers={"Authorization": "Token {}".format(DEEPGRAM_API_KEY)}
     ) as ws:
         print(f'ℹ️  Request ID: {ws.response_headers.get("dg-request-id")}')
