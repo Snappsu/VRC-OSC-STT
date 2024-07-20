@@ -1,18 +1,13 @@
 import pyaudio
-import argparse
 import asyncio
-import aiohttp
 import json
 import os
 import sys
-import wave
 import websockets
-import queue, threading, datetime, os, time, textwrap
-import speech_recognition as sr
+import threading, datetime, os, time
 from tinyoscquery.queryservice import OSCQueryService, OSCAccess
 from tinyoscquery.query import OSCQueryBrowser, OSCQueryClient
 from tinyoscquery.utility import get_open_tcp_port, get_open_udp_port
-from speech_recognition import UnknownValueError, WaitTimeoutError, AudioData
 from pythonosc import udp_client
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import BlockingOSCUDPServer
